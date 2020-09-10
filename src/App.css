@@ -1,38 +1,118 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #dfdfdf;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navigation */
+nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100vw;
+  background-color: #5f9ea0;
   color: white;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 2vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-title {
+  margin-left: 2vw;
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: 5vw;
+}
+
+.nav-link,
+.nav-link:visited {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.sub-menu {
+  background-color: #235c5f;
+  color: white;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-menu li {
+  display: inline-block;
+  cursor: pointer;
+  height: 5vh;
+}
+
+.sub-menu li a {
+  display: block;
+  height: 5vh;
+  width: 100%;
+  color: white;
+  padding: 8px 10px 0 10px;
+}
+
+.sub-menu li a:hover,
+.sub-menu li a:active {
+  color: #235c5f;
+  background-color: #dfdfdf;
+}
+
+.menu-icon {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 25%;
+}
+
+.form-icons {
+  width: 30px;
+  height: 30px;
+  float: left;
+}
+
+.container-header {
+  background-color: #235c5f;
+  color: white;
+  padding: 5px;
+  width: 97%;
+  margin: 0;
+  margin-bottom: 2rem;
+  position: relative;
+  top: 0;
+  left: 3%;
+}
+
+.income-container {
+  background-color: white;
+  height: auto;
+  padding: 10px;
+}
+
+.figures {
+  color: #235c5f;
+  font-weight: 400;
+  font-size: 2rem;
 }
