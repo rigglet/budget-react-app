@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Table, Form, Label, Button } from "semantic-ui-react";
 // import { BiReset } from "react-icons/bi";
 
@@ -10,57 +10,58 @@ const InForm = (props) => {
     tax,
     ni,
     contributions,
+    yearlyNet,
+    monthlyNet,
+    weeklyNet,
   } = props.incomeData;
-  //console.log(allowance);
 
-  const [annualSalary, setASalary] = useState(annual);
-  const [taxAllowance, setAllowance] = useState(allowance);
-  const [taxableAmount, setTaxable] = useState(taxable);
-  const [taxAmount, setTaxAmount] = useState(tax);
-  const [niAmount, setNI] = useState(ni);
-  const [totalTax, setTotalTax] = useState(contributions);
-
-  function resetFigures() {
-    setASalary(annual);
+  function handleChange(event) {
+    //console.log(props);
+    props.onChange({ [event.target.name]: event.target.value });
   }
-
   return (
     <>
       <Container className="income-container">
         <Form>
           <Form.Group widths="equal">
             <Form.Input
-              onChange={() => setASalary(annualSalary)}
+              onChange={handleChange}
               fluid
               label="Annual Salary (Gross)"
               labelPosition="right"
               type="number"
               placeholder="Annual Salary (Gross)"
-              defaultValue={annualSalary}
+              defaultValue={annual}
+              name="annual"
+              step="10"
             >
               <Label>£</Label>
               <input />
             </Form.Input>
             <Form.Input
-              onChange={() => setAllowance(taxAllowance)}
+              onChange={handleChange}
               fluid
               label="Tax Free Allowance"
               labelPosition="right"
               type="number"
               placeholder="Tax Free Allowance"
               defaultValue={allowance}
+              name="allowance"
+              step="10"
             >
               <Label>£</Label>
               <input />
             </Form.Input>
             <Form.Input
-              onChange={() => setTaxable(taxableAmount)}
+              onChange={handleChange}
               fluid
               label="Taxable Income"
               placeholder="Taxable Income"
               defaultValue={taxable}
               labelPosition="right"
               type="number"
+              name="taxable"
+              step="10"
             >
               <Label>£</Label>
               <input />
@@ -68,37 +69,43 @@ const InForm = (props) => {
           </Form.Group>
           <Form.Group widths="equal">
             <Form.Input
-              onChange={() => setTaxAmount(taxAmount)}
+              onChange={handleChange}
               label="Income Tax"
               placeholder="Income Tax"
               defaultValue={tax}
               fluid
               labelPosition="right"
               type="number"
+              name="tax"
+              step="10"
             >
               <Label>£</Label>
               <input />
             </Form.Input>
             <Form.Input
-              onChange={() => setNI(niAmount)}
+              onChange={handleChange}
               fluid
               labelPosition="right"
               type="number"
               label="National Insurance"
               placeholder="National Insurance"
               defaultValue={ni}
+              name="ni"
+              step="10"
             >
               <Label>£</Label>
               <input />
             </Form.Input>
             <Form.Input
-              onChange={() => setTotalTax(totalTax)}
+              onChange={handleChange}
               fluid
               labelPosition="right"
               type="number"
-              label="Total"
-              placeholder="Total"
+              label="Total deductions"
+              placeholder="Deductions"
               defaultValue={contributions}
+              name="contributions"
+              step="10"
             >
               <Label>£</Label>
               <input />
@@ -118,21 +125,18 @@ const InForm = (props) => {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <span className="figures">£41197.92</span>
+                <span className="figures">£{yearlyNet}</span>
               </Table.Cell>
               <Table.Cell>
-                <span className="figures">£3433.16</span>
+                <span className="figures">£{monthlyNet}</span>
               </Table.Cell>
               <Table.Cell>
-                <span className="figures">£792.27</span>
+                <span className="figures">£{weeklyNet}</span>
               </Table.Cell>
             </Table.Row>
           </Table.Body>
         </Table>
-        <Button onClick={() => resetFigures()}>
-          Reset
-          {/* <BiReset className="form-icons" /> */}
-        </Button>
+        <Button>Reset</Button>
       </Container>
     </>
   );

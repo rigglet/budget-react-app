@@ -3,26 +3,9 @@ import { Container, Divider } from "semantic-ui-react";
 import { FcBullish } from "react-icons/fc";
 import InForm from "../components/inForm";
 
-const Income = () => {
-  // const incomeData = {
-  //   data: [
-  //     { annual: 63000.0 },
-  //     { allowance: 12509.0 },
-  //     { taxable: 50491.0 },
-  //     { tax: 12698.2 },
-  //     { ni: 5120.0 },
-  //     { contributions: 17818.2 },
-  //   ],
-  // };
+const Income = (props) => {
+  const { incomeData } = props;
 
-  const incomeData = {
-    annual: "63000.00",
-    allowance: "12509.00",
-    taxable: "50491.00",
-    tax: "12698.20",
-    ni: "5120.00",
-    contributions: "17818.20",
-  };
   return (
     <>
       <Container className="income-container">
@@ -37,7 +20,7 @@ const Income = () => {
           HMRC tax calculator
         </a>
         <Divider horizontal>Then complete the fields below</Divider>
-        <InForm incomeData={incomeData} />
+        <InForm incomeData={incomeData} onChange={props.onChange} />
       </Container>
     </>
   );

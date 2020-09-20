@@ -111,8 +111,21 @@ nav {
   padding: 10px;
 }
 
+.budget-overview-container {
+  background-color: white;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 1vh;
+}
+
+.budget-container {
+  background-color: white;
+  height: auto;
+  padding: 10px;
+}
+
 .figures {
   color: #235c5f;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
