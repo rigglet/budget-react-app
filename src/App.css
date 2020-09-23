@@ -7,6 +7,7 @@
 }
 
 body {
+  /* background: #dfdfdf; */
   background: #dfdfdf;
 }
 
@@ -105,21 +106,19 @@ nav {
   left: 3%;
 }
 
-.income-container {
+.container {
   background-color: white;
   height: auto;
   padding: 10px;
-}
-
-.budget-overview-container {
-  background-color: white;
-  height: auto;
-  padding: 10px;
-  margin-bottom: 1vh;
 }
 
 .budget-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: baseline;
   background-color: white;
+  margin: 1vh 5vw 0vh 5vw;
   height: auto;
   padding: 10px;
 }
@@ -128,4 +127,43 @@ nav {
   color: #235c5f;
   font-weight: 400;
   font-size: 1.2rem;
+}
+
+#allocated {
+  font-weight: 700;
+}
+
+#remaining {
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  /* display: block; */
+  font-size: 16px;
+  padding: 10px;
+  /* width: 100%; */
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #5f9ea0;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  /* display: block; */
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 25%;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.budgetItem {
 }

@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Table, Form, Label, Button } from "semantic-ui-react";
-// import { BiReset } from "react-icons/bi";
+import { Form, Label, Button } from "semantic-ui-react";
 
 const InForm = (props) => {
   const {
@@ -10,9 +9,6 @@ const InForm = (props) => {
     tax,
     ni,
     contributions,
-    yearlyNet,
-    monthlyNet,
-    weeklyNet,
   } = props.incomeData;
 
   function handleChange(event) {
@@ -21,10 +17,12 @@ const InForm = (props) => {
   }
   return (
     <>
-      <Container className="income-container">
+      <div className="container">
         <Form>
-          <Form.Group widths="equal">
+          <Form.Group>
             <Form.Input
+              width={3}
+              required
               onChange={handleChange}
               fluid
               label="Annual Salary (Gross)"
@@ -39,6 +37,7 @@ const InForm = (props) => {
               <input />
             </Form.Input>
             <Form.Input
+              width={3}
               onChange={handleChange}
               fluid
               label="Tax Free Allowance"
@@ -53,6 +52,7 @@ const InForm = (props) => {
               <input />
             </Form.Input>
             <Form.Input
+              width={3}
               onChange={handleChange}
               fluid
               label="Taxable Income"
@@ -67,8 +67,9 @@ const InForm = (props) => {
               <input />
             </Form.Input>
           </Form.Group>
-          <Form.Group widths="equal">
+          <Form.Group>
             <Form.Input
+              width={3}
               onChange={handleChange}
               label="Income Tax"
               placeholder="Income Tax"
@@ -83,6 +84,7 @@ const InForm = (props) => {
               <input />
             </Form.Input>
             <Form.Input
+              width={3}
               onChange={handleChange}
               fluid
               labelPosition="right"
@@ -97,6 +99,7 @@ const InForm = (props) => {
               <input />
             </Form.Input>
             <Form.Input
+              width={3}
               onChange={handleChange}
               fluid
               labelPosition="right"
@@ -113,31 +116,8 @@ const InForm = (props) => {
           </Form.Group>
         </Form>
 
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Annual Salary (Net)</Table.HeaderCell>
-              <Table.HeaderCell>Monthly Salary (Net)</Table.HeaderCell>
-              <Table.HeaderCell>Weekly Salary (Net)</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>
-                <span className="figures">£{yearlyNet}</span>
-              </Table.Cell>
-              <Table.Cell>
-                <span className="figures">£{monthlyNet}</span>
-              </Table.Cell>
-              <Table.Cell>
-                <span className="figures">£{weeklyNet}</span>
-              </Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
         <Button>Reset</Button>
-      </Container>
+      </div>
     </>
   );
 };

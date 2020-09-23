@@ -11,6 +11,8 @@ import Nav from "./components/nav";
 import Menu from "./components/menu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import { GlobalProvider } from "./context/GlobalState";
+
 function App() {
   const [incomeData, changeIncome] = useState({
     annual: "63000.00",
@@ -56,35 +58,37 @@ function App() {
       <Router>
         <Nav />
         <Menu />
-        <Switch>
-          <Route
-            exact
-            path="/income"
-            render={(routeProps) => (
-              <Income
-                {...routeProps}
-                incomeData={incomeData}
-                onChange={handleChange}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/budget"
-            render={(routeProps) => (
-              <Budget
-                {...routeProps}
-                incomeData={incomeData}
-                budgetData={budgetData}
-                onChange={handleBudget}
-              />
-            )}
-          />
-          <Route exact path="/summary" component={Summary} />
-          <Route exact path="/outgoings" component={Outgoings} />
-          <Route exact path="/overview" component={Overview} />
-          <Route exact path="/" component={Home} />
-        </Switch>
+        <GlobalProvider>
+          <Switch>
+            <Route
+              exact
+              path="/income"
+              render={(routeProps) => (
+                <Income
+                  {...routeProps}
+                  incomeData={incomeData}
+                  onChange={handleChange}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/budget"
+              render={(routeProps) => (
+                <Budget
+                  {...routeProps}
+                  incomeData={incomeData}
+                  budgetData={budgetData}
+                  onChange={handleBudget}
+                />
+              )}
+            />
+            <Route exact path="/summary" component={Summary} />
+            <Route exact path="/outgoings" component={Outgoings} />
+            <Route exact path="/overview" component={Overview} />
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </GlobalProvider>
       </Router>
     </div>
   );

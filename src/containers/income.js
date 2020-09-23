@@ -1,14 +1,15 @@
 import React from "react";
-import { Container, Divider } from "semantic-ui-react";
+import { Divider } from "semantic-ui-react";
 import { FcBullish } from "react-icons/fc";
 import InForm from "../components/inForm";
+import SalaryBreakdown from "../components/SalaryBreakdown";
 
 const Income = (props) => {
   const { incomeData } = props;
 
   return (
     <>
-      <Container className="income-container">
+      <div className="container">
         <FcBullish className="form-icons" />
         <h3 className="container-header">Income</h3>
         <Divider horizontal>Visit HMRC to calculate tax</Divider>
@@ -21,7 +22,8 @@ const Income = (props) => {
         </a>
         <Divider horizontal>Then complete the fields below</Divider>
         <InForm incomeData={incomeData} onChange={props.onChange} />
-      </Container>
+        <SalaryBreakdown incomeData={props.incomeData} />
+      </div>
     </>
   );
 };
