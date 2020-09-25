@@ -4,8 +4,8 @@ import { FcBullish } from "react-icons/fc";
 import InForm from "../components/inForm";
 import SalaryBreakdown from "../components/SalaryBreakdown";
 
-const Income = (props) => {
-  const { incomeData } = props;
+const Income = ({ incomeData, onChange }) => {
+  //const { incomeData } = props;
 
   return (
     <>
@@ -21,8 +21,8 @@ const Income = (props) => {
           HMRC tax calculator
         </a>
         <Divider horizontal>Then complete the fields below</Divider>
-        <InForm incomeData={incomeData} onChange={props.onChange} />
-        <SalaryBreakdown incomeData={props.incomeData} />
+        <InForm incomeData={incomeData} onChange={onChange} />
+        <SalaryBreakdown incomeData={incomeData} />
       </div>
     </>
   );

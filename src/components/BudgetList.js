@@ -1,22 +1,36 @@
 import React, { useContext } from "react";
 import BudgetItem from "./BudgetItem";
 import { GlobalContext } from "../context/GlobalState";
+import { Table } from "semantic-ui-react";
+import nextId from "react-id-generator";
 
 const BudgetList = () => {
-  const context = useContext(GlobalContext);
-  console.log(context.budgetItems);
+  // const [htmlId] = nextId("budget");
+  const { budgetItems } = useContext(GlobalContext);
+  //console.log(budgetItems);
 
   return (
-    <ul id="budgetList">
-      {context.budgetItems.map((item) => (
-        <BudgetItem
-          category={item.category}
-          item={item.item}
-          frequency={item.frequency}
-          amount={item.amount}
-        />
-      ))}
-    </ul>
+    <Table celled collapsing>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>Category</Table.HeaderCell>
+          <Table.HeaderCell>Item</Table.HeaderCell>
+          <Table.HeaderCell>Frequency</Table.HeaderCell>
+          <Table.HeaderCell>Amount</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {budgetItems.map((item) => (
+          <BudgetItem
+            key={nextId()}
+            category={item.category}
+            item={item.item}
+            frequency={item.frequency}
+            amount={item.amount}
+          />
+        ))}
+      </Table.Body>
+    </Table>
   );
 };
 

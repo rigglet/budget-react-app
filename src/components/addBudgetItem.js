@@ -71,7 +71,9 @@ export const AddBudgetItem = () => {
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount..."
           />
-          <Form.Button onClick={onSubmit}>Add Item</Form.Button>
+          <Form.Button onClick={onSubmit} id="addButton">
+            Add Item
+          </Form.Button>
         </Form.Group>
       </Form>
     </>

@@ -24,7 +24,17 @@ const initialState = {
       amount: 353.17,
     },
   ],
-  income: {},
+  income: {
+    annual: "63000.00",
+    allowance: "12509.00",
+    taxable: "50491.00",
+    tax: "12698.20",
+    ni: "5120.00",
+    contributions: "21802.08",
+    yearlyNet: "41197.92",
+    monthlyNet: "3433.16",
+    weeklyNet: "792.27",
+  },
 };
 
 export const GlobalContext = createContext(initialState);

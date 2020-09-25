@@ -55,7 +55,7 @@ nav {
   color: white;
   display: flex;
   list-style-type: none;
-  margin-bottom: 2vh;
+  margin-bottom: 0.5vh;
   justify-content: center;
   align-items: center;
 }
@@ -95,21 +95,23 @@ nav {
 }
 
 .container-header {
+  border-radius: 5px;
   background-color: #235c5f;
   color: white;
   padding: 5px;
   width: 97%;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
   top: 0;
   left: 3%;
 }
 
 .container {
-  background-color: white;
+  background-color: #dfdfdf;
   height: auto;
   padding: 10px;
+  margin: 1vh 5vw 0vh 5vw;
 }
 
 .budget-container {
@@ -117,7 +119,7 @@ nav {
   flex-direction: column;
   align-items: space-around;
   justify-content: baseline;
-  background-color: white;
+  background-color: #dfdfdf;
   margin: 1vh 5vw 0vh 5vw;
   height: auto;
   padding: 10px;
@@ -165,5 +167,29 @@ input[type="number"] {
   outline: 0;
 }
 
+#addButton {
+  box-sizing: border-box;
+  background-color: #235c5f;
+  color: white;
+}
+#addButton:hover {
+  background-color: white;
+  color: #235c5f;
+  border: 2px solid #235c5f;
+  border-radius: 3px;
+}
+
 .budgetItem {
+  list-style: none;
+}
+
+.category {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: lowercase;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.category::first-letter {
+  text-transform: uppercase;
 }
