@@ -4,11 +4,15 @@ import { GlobalContext } from "../context/GlobalState";
 
 const AllocatedRemaining = () => {
   const { budgetItems, income } = useContext(GlobalContext);
-  console.log(income.monthlyNet);
+  //console.log(income.monthlyNet);
 
   const allocated = budgetItems.map((item) => item.amount);
-  //const allocated = [1, 2, 3, 4, 5];
-  const subTotal = allocated.reduce((acc, current) => acc + current).toFixed(2);
+  let subTotal = 0;
+
+  if (allocated.length > 0) {
+    subTotal = allocated.reduce((acc, current) => acc + current).toFixed(2);
+  }
+
   const remaining = (income.monthlyNet - subTotal).toFixed(2);
   // const remaining = 0;
   // const allocated = 0;
@@ -30,7 +34,10 @@ const AllocatedRemaining = () => {
               </span>
             </Table.Cell>
             <Table.Cell>
-              <span className="figures" id="remaining">
+              <span
+                className={remaining < 0 ? "negative" : "figures"}
+                id="remaining"
+              >
                 £{remaining}
               </span>
             </Table.Cell>

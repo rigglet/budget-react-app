@@ -17,11 +17,14 @@ const BudgetList = () => {
           <Table.HeaderCell>Item</Table.HeaderCell>
           <Table.HeaderCell>Frequency</Table.HeaderCell>
           <Table.HeaderCell>Amount</Table.HeaderCell>
+          <Table.HeaderCell>Paid?</Table.HeaderCell>
+          <Table.HeaderCell>Actions</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
         {budgetItems.map((item) => (
           <BudgetItem
+            id={item.id}
             key={nextId()}
             category={item.category}
             item={item.item}

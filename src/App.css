@@ -131,6 +131,12 @@ nav {
   font-size: 1.2rem;
 }
 
+.negative {
+  color: #830a0a;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
 #allocated {
   font-weight: 700;
 }
@@ -192,4 +198,17 @@ input[type="number"] {
 }
 .category::first-letter {
   text-transform: uppercase;
+}
+.deleteBudgetItemButton {
+  box-sizing: border-box;
+  background-color: #235c5f;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  outline-style: none;
+  border: none;
+}
+
+.budgetName:hover {
+  font-weight: bold;
 }

@@ -1,33 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form } from "semantic-ui-react";
-// import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "../context/GlobalState";
 
 export const AddBudgetItem = () => {
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
   const [item, setItem] = useState("");
   const [frequency, setFrequency] = useState("");
+  const { addBudgetItem } = useContext(GlobalContext);
 
   const freqOptions = [
     { key: "d", text: "Daily", value: "daily" },
     { key: "w", text: "Weekly", value: "weekly" },
     { key: "m", text: "Monthly", value: "monthly" },
-    { key: "a", text: "Annually", value: "Annually" },
+    { key: "a", text: "Annually", value: "annually" },
   ];
   //const { addTransaction } = useContext(GlobalContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // const newItem = {
-    //   id: Math.floor(Math.random() * 100000000),
-    //   category: category,
-    //   item: item,
-    //   frequency: frequency,
-    //   amount: amount,
-    // };
+    const newItem = {
+      id: Math.floor(Math.random() * 100000000),
+      category: category,
+      item: item,
+      frequency: frequency,
+      amount: amount,
+    };
 
-    //addTransaction(newTransaction);
+    addBudgetItem(newItem);
   };
 
   return (
@@ -59,8 +60,7 @@ export const AddBudgetItem = () => {
             labelposition="left corner"
             placeholder="Frequency..."
             options={freqOptions}
-            value={frequency}
-            onChange={(e) => setFrequency(e.target.value)}
+            onChange={(e, data) => setFrequency(data.value)}
           />
           <Form.Input
             fluid
@@ -68,7 +68,7 @@ export const AddBudgetItem = () => {
             labelposition="left corner"
             type="number"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e, data) => setAmount(Number(e.target.value))}
             placeholder="Enter amount..."
           />
           <Form.Button onClick={onSubmit} id="addButton">
