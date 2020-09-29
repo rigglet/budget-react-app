@@ -1,13 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { Form, Table } from "semantic-ui-react";
+import ContentEditable from "react-contenteditable";
 
-const BudgetItem = ({ id, category, item, frequency, amount }) => {
-  const { deleteBudgetItem } = useContext(GlobalContext);
-  console.log(typeof amount);
+const BudgetItem = (budgetItem) => {
+  const { id, category, item, frequency, amount } = budgetItem;
+  const { deleteBudgetItem, editBudgetItem } = useContext(GlobalContext);
+  const editedBudgetItem = useRef("");
+
+  const handleChange = (evt) => {
+    editedBudgetItem.current = evt.target.value;
+  };
+
+  const handleBlur = () => {
+    console.log(editedBudgetItem.current);
+    const editItem = {
+      ...budgetItem,
+      category: editedBudgetItem.current,
+    };
+    editedBudgetItem.current.length > 0
+      ? editBudgetItem(editItem)
+      : console.log("not changed");
+  };
+
   return (
     <Table.Row className="budgetName">
-      <Table.Cell>{category}</Table.Cell>
+      <Table.Cell>
+        <ContentEditable
+          html={category}
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+      </Table.Cell>
       <Table.Cell>{item}</Table.Cell>
       <Table.Cell>{frequency}</Table.Cell>
       <Table.Cell>

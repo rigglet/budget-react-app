@@ -12,6 +12,15 @@ export default (state, action) => {
         ...state,
         budgetItems: [action.payload, ...state.budgetItems],
       };
+    case "EDIT_BUDGET_ITEM":
+      const bi = state.budgetItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+      //console.log(bi);
+      return {
+        ...state,
+        budgetItems: [action.payload, ...bi],
+      };
     default:
       return state;
   }

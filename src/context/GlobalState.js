@@ -71,6 +71,13 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function editBudgetItem(budgetItem) {
+    dispatch({
+      type: "EDIT_BUDGET_ITEM",
+      payload: budgetItem,
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -78,6 +85,7 @@ export const GlobalProvider = ({ children }) => {
         income: state.income,
         deleteBudgetItem,
         addBudgetItem,
+        editBudgetItem,
       }}
     >
       {children}
