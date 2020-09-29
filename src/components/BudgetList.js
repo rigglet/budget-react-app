@@ -22,16 +22,18 @@ const BudgetList = () => {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {budgetItems.map((item) => (
-          <BudgetItem
-            id={item.id}
-            key={nextId()}
-            category={item.category}
-            item={item.item}
-            frequency={item.frequency}
-            amount={item.amount}
-          />
-        ))}
+        {budgetItems
+          .sort((a, b) => (a.category > b.category ? 1 : -1))
+          .map((item) => (
+            <BudgetItem
+              id={item.id}
+              key={nextId()}
+              category={item.category}
+              item={item.item}
+              frequency={item.frequency}
+              amount={item.amount}
+            />
+          ))}
       </Table.Body>
     </Table>
   );

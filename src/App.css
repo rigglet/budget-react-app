@@ -203,12 +203,17 @@ input[type="number"] {
   box-sizing: border-box;
   background-color: #235c5f;
   color: white;
-  padding: 3px;
+  padding: 5px;
   border-radius: 3px;
   outline-style: none;
   border: none;
 }
 
+.deleteBudgetItemButton:hover {
+  background-color: white;
+  color: #235c5f;
+  outline: 2px solid #235c5f;
+}
 .budgetName:hover {
   font-weight: bold;
 }

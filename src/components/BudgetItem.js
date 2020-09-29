@@ -18,9 +18,7 @@ const BudgetItem = (budgetItem) => {
       ...budgetItem,
       category: editedBudgetItem.current,
     };
-    editedBudgetItem.current.length > 0
-      ? editBudgetItem(editItem)
-      : console.log("not changed");
+    if (editedBudgetItem.current.length > 0) editBudgetItem(editItem);
   };
 
   return (
