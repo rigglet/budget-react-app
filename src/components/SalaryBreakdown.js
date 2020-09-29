@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Table } from "semantic-ui-react";
+import { GlobalContext } from "../context/GlobalState";
 
-const SalaryBreakdown = (props) => {
-  const { yearlyNet, monthlyNet, weeklyNet } = props.incomeData;
-
+const SalaryBreakdown = () => {
+  const { income } = useContext(GlobalContext);
   return (
     <>
       <Table celled collapsing>
@@ -18,13 +18,13 @@ const SalaryBreakdown = (props) => {
         <Table.Body>
           <Table.Row>
             <Table.Cell>
-              <span className="figures">£{yearlyNet}</span>
+              <span className="figures">£{income.yearlyNet}</span>
             </Table.Cell>
             <Table.Cell>
-              <span className="figures">£{monthlyNet}</span>
+              <span className="figures">£{income.monthlyNet}</span>
             </Table.Cell>
             <Table.Cell>
-              <span className="figures">£{weeklyNet}</span>
+              <span className="figures">£{income.weeklyNet}</span>
             </Table.Cell>
           </Table.Row>
         </Table.Body>

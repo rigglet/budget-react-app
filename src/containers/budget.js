@@ -15,10 +15,10 @@ const Budget = (props) => {
 
         <Grid columns={2} relaxed="very" stackable>
           <Grid.Column>
-            <SalaryBreakdown incomeData={props.incomeData} />
+            <SalaryBreakdown />
           </Grid.Column>
           <Grid.Column>
-            <AllocatedRemaining budgetData={props.budgetData} />
+            <AllocatedRemaining />
           </Grid.Column>
         </Grid>
       </div>
