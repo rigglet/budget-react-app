@@ -199,6 +199,7 @@ input[type="number"] {
 .category::first-letter {
   text-transform: uppercase;
 }
+
 .deleteBudgetItemButton {
   box-sizing: border-box;
   background-color: #235c5f;
@@ -214,6 +215,30 @@ input[type="number"] {
   color: #235c5f;
   outline: 2px solid #235c5f;
 }
+
 .budgetName:hover {
   font-weight: bold;
+}
+
+.budgetEditInput {
+  display: inline;
+  outline: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #235c5f;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#addBudgetButton {
+  box-sizing: border-box;
+  background-color: #235c5f;
+  color: white;
+}
+#addBudgetButton:hover {
+  background-color: white;
+  color: #235c5f;
+  border: 2px solid #235c5f;
+  border-radius: 3px;
 }

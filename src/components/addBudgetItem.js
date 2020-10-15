@@ -3,7 +3,7 @@ import { Form } from "semantic-ui-react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const AddBudgetItem = () => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
   const [category, setCategory] = useState("");
   const [item, setItem] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -29,6 +29,11 @@ export const AddBudgetItem = () => {
     };
 
     addBudgetItem(newItem);
+
+    setCategory("");
+    setItem("");
+    setFrequency("");
+    setAmount("");
   };
 
   return (

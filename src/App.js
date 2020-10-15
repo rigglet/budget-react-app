@@ -86,7 +86,7 @@ function App() {
             <Route exact path="/summary" component={Summary} />
             <Route exact path="/outgoings" component={Outgoings} />
             <Route exact path="/overview" component={Overview} />
-            <Route exact path="/" component={Home} />
+            <Route path="/" component={Home} />
           </Switch>
         </GlobalProvider>
       </Router>

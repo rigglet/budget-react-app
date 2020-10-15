@@ -4,6 +4,9 @@ import { GlobalContext } from "../context/GlobalState";
 
 const SalaryBreakdown = () => {
   const { income } = useContext(GlobalContext);
+  //const yearlyNet = savedBudgets[0].data.income.yearlyNet;
+  //const monthlyNet = yearlyNet / 12;
+  //const weeklyNet = yearlyNet / 52;
   return (
     <>
       <Table celled collapsing>

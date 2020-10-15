@@ -10,20 +10,21 @@ const BudgetList = () => {
   //console.log(budgetItems);
 
   return (
-    <Table celled collapsing>
+    <Table celled>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Category</Table.HeaderCell>
-          <Table.HeaderCell>Item</Table.HeaderCell>
-          <Table.HeaderCell>Frequency</Table.HeaderCell>
-          <Table.HeaderCell>Amount</Table.HeaderCell>
-          <Table.HeaderCell>Paid?</Table.HeaderCell>
-          <Table.HeaderCell>Actions</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Category</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Item</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Frequency</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Amount</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Paid?</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Actions</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
         {budgetItems
           .sort((a, b) => (a.category > b.category ? 1 : -1))
+          //.sort((a, b) => (a.item > b.item ? 1 : -1))
           .map((item) => (
             <BudgetItem
               id={item.id}
